@@ -1,0 +1,36 @@
+# See http://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+spring:
+    datasource:
+        hikari:
+            connection-test-query: SELECT 1 FROM DUAL
+            maximum-pool-size: 50
+        driver-class-name: com.mysql.jdbc.Driver
+        jdbc-url: jdbc:mysql://localhost:3306/observer
+        username: root
+        password: root
+    freemarker:
+      suffix: .ftl
+      content-type: text/html
+      charset: utf-8
+      request-context-attribute: request
+      template-loader-path: classpath:/templates
+    mvc:
+      static-path-pattern: /static/**
+mybatis:
+  typeAliasesPackage: com.shuangye.freemarker.pojo
+  mapperLocations: classpath:mapper/*.xml
+
+server:
+  tomcat:
+    max-threads: 20
+    max-connections: 20000
+logging:
+  level:
+    com:
+      shuangye:
+        freemarker:
+          mapper: debug
+
+
+
+

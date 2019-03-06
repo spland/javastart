@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <properties resource="generator.propertites"></properties>
+    <classPathEntry location="${jdbc.driverLocation}" />
+    <!--classPathEntry location="D:\zngkpt\m2\repository\mysql\mysql-connector-java\5.1.40\mysql-connector-java-5.1.40.jar" /-->
+    <context id="context1" defaultModelType="flat" targetRuntime="MyBatis3Simple">
+
+        <commentGenerator>
+            <!-- 去除自动生成的注释 -->
+            <property name="suppressAllComments" value="true" />
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <!-- 数据库连接配置 -->
+        <jdbcConnection driverClass="${jdbc.driverClass}"
+                        connectionURL="${jdbc.connectionURL}"
+                        userId="${jdbc.userId}"
+                        password="${jdbc.password}" />
+
+        <javaModelGenerator targetPackage="com.shuangye.freemarker.pojo"
+                            targetProject="src/main/java" />
+
+        <!-- 实体包对应映射文件位置及名称，默认存放在src目录下 -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources" />
+
+        <javaClientGenerator targetPackage="com.shuangye.freemarker.mapper"
+                             targetProject="src/main/java" type="XMLMAPPER">
+
+        </javaClientGenerator>
+       <table tableName="user"></table>
+    </context>
+</generatorConfiguration>
